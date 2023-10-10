@@ -3,6 +3,7 @@ package com.kshitizadhet;
 import com.kshitizadhet.types.Variables;
 import com.thedeanda.lorem.Lorem;
 import com.thedeanda.lorem.LoremIpsum;
+import lombok.Getter;
 
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -10,8 +11,9 @@ import java.time.LocalTime;
 
 public class KeySimulator {
     private Robot robot;
+    @Getter
     private String characters;
-    private int delay;
+    private final int delay;
 
     public static void main(final String[] args) {
         int loop = 1;
@@ -28,8 +30,8 @@ public class KeySimulator {
             }
         }
 
-        final int minWords = 350;
-        final int maxWords = 500;
+        final int minWords = 800;
+        final int maxWords = 1000;
 
         Lorem lorem = LoremIpsum.getInstance();
         String initString = lorem.getWords(minWords, maxWords);
@@ -73,10 +75,6 @@ public class KeySimulator {
         return keyCode;
     }
 
-    public String getCharacters() {
-        return this.characters;
-    }
-
     public void simulate() {
         int keyCode ;
         if (this.robot == null) {
@@ -85,7 +83,7 @@ public class KeySimulator {
         for (int i = 0; i < this.getCharacters().length(); ++i) {
             if (i != 0 && i % 50 == 0) {
                 try {
-                    Thread.sleep(5000L);
+                    Thread.sleep(6500L);
                 }
                 catch (InterruptedException e) {
                     throw new RuntimeException(e);

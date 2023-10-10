@@ -17,12 +17,4 @@ public class Variables {
         this.delay = delay;
         this.data = data;
     }
-
-    public int getDelay() {
-        return delay;
-    }
-
-    public String getData() {
-        return data;
-    }
 }
